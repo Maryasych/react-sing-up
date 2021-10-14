@@ -1,15 +1,76 @@
 @import "~bootstrap/scss/bootstrap";
+@import "./variables.scss";
+@import "./logo.scss";
+@import "./gender-icons.scss";
+@import "./login-window";
+@import "./password.scss";
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  color: $themeColor;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.main-bg {
+  background-color: $bgColor;
+}
+
+.rounded-16 {
+  border-radius: 16px;
+}
+
+.btn-border-gray {
+  border-width: 1px;
+  border-style: solid;
+  border-color: $borderDark;
+}
+
+.custom-btn {
+  &.normal {
+    background-color: $normal;
+  }
+  &.hover {
+    background-color: $hover;
+  }
+  &.pressed {
+    background-color: $pressed;
+  }
+}
+
+.custom-form-control {
+  border-width: 1px;
+  border-style: solid;
+  outline: 0;
+  height: 4em;
+  color: $themeColor;
+  &.normal {
+    border-color: $borderDark;
+  }
+  &.active {
+    border-color: $active;
+  }
+  &.error {
+    border-color: $failed;
+  }
+}
+
+.error-message {
+  height: 1em;
+}
+
+.text-normal {
+  color: $normal;
+}
+
+.text-white {
+  color: white;
+}
+
+@media screen and (max-width: 576px) {
+  .custom-form-control {
+    height: 3em;
+  }
+  .custom-btn {
+    padding: 0.9em !important;
+  }
 }

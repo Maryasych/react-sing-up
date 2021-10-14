@@ -1,0 +1,58 @@
+.gender-custom-btn {
+  color: $themeColor;
+  width: 14em;
+  height: 5em;
+  font-weight: lighter;
+  transition: all 0.25s;
+  svg {
+    transition: fill 0.25s;
+  }
+
+  &.selected {
+    color: $hoveredButton;
+    font-weight: 700;
+    border-color: $hoveredButton;
+    svg {
+      fill: $hoveredButton;
+    }
+  }
+
+  &:hover {
+    color: $hoveredButton;
+    font-weight: 700;
+    border-color: $hoveredButton;
+    svg {
+      fill: $hoveredButton;
+    }
+  }
+}
+
+.btn-check:checked ~ label {
+  color: $hoveredButton;
+  font-weight: 700;
+  border-color: $hoveredButton;
+  svg {
+    fill: $hoveredButton;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .gender-custom-btn {
+    width: 9em;
+    height: 5em;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .gender-custom-btn {
+    width: 6em;
+    height: 4em;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .gender-custom-btn {
+    width: 5em;
+    height: 4em;
+  }
+}
