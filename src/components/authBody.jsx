@@ -2,12 +2,7 @@ import { GenderSelector } from "./genderSelector";
 import { Email } from "./email";
 import { Password } from "./password";
 import { useState } from "react";
-
-const bntBgColorStates = {
-  0: "normal",
-  1: "hover",
-  2: "pressed",
-};
+import { SubmitBtnContainer } from "./SubmitBtnContainer";
 
 const inputFieldStates = {
   0: "normal",
@@ -116,25 +111,7 @@ const AuthBody = () => {
         passwordConfirmField={passwordConfirmField}
         setPasswordConfirmFieldState={setPasswordConfirmFieldState}
       />
-      <input
-        type="submit"
-        className={`btn text-white fw-bolder rounded-16 w-100 p-4 mt-2 custom-btn ${bntBgColorStates[submitBntBg]}`}
-        id="btnradio1"
-        autoComplete="off"
-        value="Sing Up"
-        onMouseOver={() => {
-          setSubmitBtnBg(1);
-        }}
-        onMouseLeave={() => {
-          setSubmitBtnBg(0);
-        }}
-        onMouseDown={() => {
-          setSubmitBtnBg(2);
-        }}
-        onMouseUp={() => {
-          setSubmitBtnBg(1);
-        }}
-      />
+      <SubmitBtnContainer />
     </form>
   );
 };
