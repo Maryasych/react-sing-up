@@ -22,7 +22,7 @@ const AuthBody = () => {
     password: "",
     pass1: "",
     pass2: "",
-  });
+  }); // modify in setValue func only!
 
   let [genderErrCode, setGenderErrCode] = useState("");
 
@@ -34,7 +34,12 @@ const AuthBody = () => {
   let [passwordConfirmField, setPasswordConfirmFieldState] = useState(0);
   let [passwordErrCode, setPasswordErrCode] = useState("");
 
-  let [submitBntBg, setSubmitBtnBg] = useState(0);
+  const setValue = (prop, value) => {
+    let temp = userData;
+    temp[prop] = value;
+    setData(temp);
+    temp = null;
+  };
 
   const verifyGender = (value) => {
     if (value === "") {
@@ -49,11 +54,8 @@ const AuthBody = () => {
   const verifyEmail = (value) => {
     value.trim();
     if (/\S+@\S+\.\S+/.test(value)) {
-      let temp = userData;
-      temp.email = value;
-      setData(temp);
+      setValue("email", value);
       setEmailErrCode("");
-      temp = null;
       return true;
     } else {
       setEmailFieldState(2);
@@ -76,11 +78,8 @@ const AuthBody = () => {
       setPasswordErrCode("Password length cannot be less than 6 characters");
       return false;
     } else {
-      let temp = userData;
-      temp.password = pass1;
-      setData(temp);
+      setValue("password", pass1);
       setPasswordErrCode("");
-      temp = null;
       return true;
     }
   };
@@ -103,16 +102,14 @@ const AuthBody = () => {
       />
       <Email
         inputFieldStates={inputFieldStates}
-        setData={setData}
-        userData={userData}
+        setValue={setValue}
         emailErrCode={emailErrCode}
         emailField={emailField}
         setEmailFieldState={setEmailFieldState}
       />
       <Password
         inputFieldStates={inputFieldStates}
-        setData={setData}
-        userData={userData}
+        setValue={setValue}
         passwordErrCode={passwordErrCode}
         passwordField={passwordField}
         setPasswordFieldState={setPasswordFieldState}

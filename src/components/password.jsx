@@ -8,18 +8,6 @@ const Password = (props) => {
   let [visiblePass, setPassVisibility] = useState(false);
   let [visibleConfirmPass, setConfirmPassVisibility] = useState(false);
 
-  const setPass1 = ({ value }) => {
-    let temp = props.userData;
-    temp.pass1 = value;
-    props.setData(temp);
-  };
-
-  const setPass2 = ({ value }) => {
-    let temp = props.userData;
-    temp.pass2 = value;
-    props.setData(temp);
-  };
-
   const setInputFocus = ({ current }) => current.focus();
 
   return (
@@ -40,7 +28,7 @@ const Password = (props) => {
               aria-describedby="create-password"
               onFocus={() => props.setPasswordFieldState(1)}
               onBlur={() => props.setPasswordFieldState(0)}
-              onChange={(e) => setPass1(e.target)}
+              onChange={(e) => props.setValue("pass1", e.target.value)}
             />
             <span
               className={`input-group-text rounded-16 show ${
@@ -70,7 +58,7 @@ const Password = (props) => {
               aria-describedby="create-password"
               onFocus={() => props.setPasswordConfirmFieldState(1)}
               onBlur={() => props.setPasswordConfirmFieldState(0)}
-              onChange={(e) => setPass2(e.target)}
+              onChange={(e) => props.setValue("pass2", e.target.value)}
             />
             <span
               className={`input-group-text rounded-16 show ${

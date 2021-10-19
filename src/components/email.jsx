@@ -2,11 +2,6 @@ import { Col, Row } from "react-bootstrap";
 import { ErrorMessage } from "./errorMessage";
 
 const Email = (props) => {
-  const setEmail = ({ value }) => {
-    let temp = props.userData;
-    temp.email = value;
-    props.setData(temp);
-  };
   return (
     <Row>
       <Col>
@@ -21,7 +16,7 @@ const Email = (props) => {
           required
           onFocus={() => props.setEmailFieldState(1)}
           onBlur={() => props.setEmailFieldState(0)}
-          onChange={(e) => setEmail(e.target)}
+          onChange={(e) => props.setValue("email", e.target.value)}
         ></input>
         <ErrorMessage message={props.emailErrCode} />
       </Col>
