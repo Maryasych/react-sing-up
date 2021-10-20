@@ -1,79 +1,46 @@
-import { Fragment, useRef, useState } from "react";
-import { Col, Row } from "react-bootstrap";
+import { Fragment, useState } from "react";
+import { Row } from "react-bootstrap";
+import { InputFieldWithTypeChange } from "./InputFieldGroup";
 import { ErrorMessage } from "./errorMessage";
 
 const Password = (props) => {
-  let pass = useRef();
-  let confirmPass = useRef();
-  let [visiblePass, setPassVisibility] = useState(false);
-  let [visibleConfirmPass, setConfirmPassVisibility] = useState(false);
+  let [isPassText, setPassVisibility] = useState(false);
+  let [isConfirmPassText, setConfirmPassVisibility] = useState(false);
 
-  const setInputFocus = ({ current }) => current.focus();
+  const setFocus = ({ current }) => current.focus();
 
   return (
     <Fragment>
       <Row className="mb-3">
-        <Col>
-          <span className="fw-bold">Create password</span>
-          <div className="input-group password w-100 mt-2">
-            <input
-              ref={pass}
-              type={`${visiblePass ? "text" : "password"}`}
-              className={` custom-form-control rounded-16 p-3 ${
-                props.inputFieldStates[props.passwordField]
-              }`}
-              placeholder="******"
-              name="password"
-              required
-              aria-describedby="create-password"
-              onFocus={() => props.setPasswordFieldState(1)}
-              onBlur={() => props.setPasswordFieldState(0)}
-              onChange={(e) => props.setValue("pass1", e.target.value)}
-            />
-            <span
-              className={`input-group-text rounded-16 show ${
-                props.inputFieldStates[props.passwordField]
-              }`}
-              id="create-password"
-              onClick={() => {
-                setInputFocus(pass);
-                setPassVisibility(!visiblePass);
-              }}
-            ></span>
-          </div>
-        </Col>
+        <InputFieldWithTypeChange
+          label="Create password"
+          isText={isPassText}
+          changeValueVisibility={setPassVisibility}
+          setFocus={setFocus}
+          inputFieldState={props.inputFieldStates}
+          fieldOutlineState={props.passwordOutline}
+          setFieldState={props.setPasswordFieldState}
+          setValue={props.setValue}
+          fieldName="pass1"
+          placeholder="******"
+        />
       </Row>
       <Row className="mb-3">
-        <Col>
-          <span className="fw-bold">Confirm password</span>
-          <div className="input-group password w-100 mt-2">
-            <input
-              ref={confirmPass}
-              type={`${visibleConfirmPass ? "text" : "password"}`}
-              className={` custom-form-control rounded-16 p-3 ${
-                props.inputFieldStates[props.passwordConfirmField]
-              }`}
-              placeholder="******"
-              required
-              aria-describedby="create-password"
-              onFocus={() => props.setPasswordConfirmFieldState(1)}
-              onBlur={() => props.setPasswordConfirmFieldState(0)}
-              onChange={(e) => props.setValue("pass2", e.target.value)}
-            />
-            <span
-              className={`input-group-text rounded-16 show ${
-                props.inputFieldStates[props.passwordConfirmField]
-              }`}
-              id="create-password"
-              onClick={() => {
-                setInputFocus(confirmPass);
-                setConfirmPassVisibility(!visibleConfirmPass);
-              }}
-            ></span>
-          </div>
-          <ErrorMessage message={props.passwordErrCode} />
-        </Col>
+        <InputFieldWithTypeChange
+          label="Confirm password"
+          isText={isConfirmPassText}
+          changeValueVisibility={setConfirmPassVisibility}
+          setFocus={setFocus}
+          inputFieldState={props.inputFieldStates}
+          fieldOutlineState={props.passwordConfirmOutline}
+          setFieldState={props.setPasswordConfirmFieldState}
+          setValue={props.setValue}
+          fieldName="pass2"
+          placeholder="******"
+          name="password"
+        />
       </Row>
+      <ErrorMessage message={props.passwordErrCode} />
     </Fragment>
   );
 };

@@ -24,9 +24,9 @@ const AuthBody = () => {
   let [emailField, setEmailFieldState] = useState(0);
   let [emailErrCode, setEmailErrCode] = useState("");
 
-  let [passwordField, setPasswordFieldState] = useState(0);
+  let [passwordOutline, setPasswordFieldState] = useState(0);
+  let [passwordConfirmOutline, setPasswordConfirmFieldState] = useState(0);
 
-  let [passwordConfirmField, setPasswordConfirmFieldState] = useState(0);
   let [passwordErrCode, setPasswordErrCode] = useState("");
 
   const setValue = (prop, value) => {
@@ -62,6 +62,7 @@ const AuthBody = () => {
   const verifyPassword = (pass1, pass2) => {
     pass1.trim();
     pass2.trim();
+    console.log(pass1, pass2);
     if (pass1 !== pass2) {
       setPasswordFieldState(2);
       setPasswordConfirmFieldState(2);
@@ -106,9 +107,9 @@ const AuthBody = () => {
         inputFieldStates={inputFieldStates}
         setValue={setValue}
         passwordErrCode={passwordErrCode}
-        passwordField={passwordField}
+        passwordOutline={passwordOutline}
         setPasswordFieldState={setPasswordFieldState}
-        passwordConfirmField={passwordConfirmField}
+        passwordConfirmOutline={passwordConfirmOutline}
         setPasswordConfirmFieldState={setPasswordConfirmFieldState}
       />
       <SubmitBtnContainer />
