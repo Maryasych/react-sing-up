@@ -25,7 +25,7 @@ const Password = (props) => {
           placeholder="******"
         />
       </Row>
-      <Row className="mb-3">
+      <Row>
         <InputFieldWithTypeChange
           label="Confirm password"
           isText={isConfirmPassText}
