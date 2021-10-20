@@ -1,5 +1,4 @@
 export const InputField = (props) => {
-  console.log(props.fieldName);
   let {
     elem,
     isText = true,
@@ -10,12 +9,13 @@ export const InputField = (props) => {
     placeholder,
     name,
     setValue,
+    optionalClasses = "",
   } = props;
   return (
     <input
       ref={elem}
       type={`${isText ? "text" : "password"}`}
-      className={` custom-form-control rounded-16 p-3 ${inputFieldState[fieldOutlineState]}`}
+      className={` custom-form-control rounded-16 p-3 ${inputFieldState[fieldOutlineState]} ${optionalClasses}`}
       placeholder={placeholder}
       name={name}
       required
