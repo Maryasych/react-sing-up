@@ -3,7 +3,6 @@ import { Col } from "react-bootstrap";
 import { InputField } from "./InputField";
 
 export const InputFieldWithTypeChange = (props) => {
-  console.log(props);
   let {
     label,
     isText,
