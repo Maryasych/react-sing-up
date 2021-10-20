@@ -1,26 +1,28 @@
-import { Col, Row } from "react-bootstrap";
+import { Fragment } from "react";
+import { Row, Col } from "react-bootstrap";
 import { ErrorMessage } from "./errorMessage";
+import { InputField } from "./InputField";
 
 const Email = (props) => {
   return (
-    <Row>
-      <Col>
-        <span className="fw-bold">Email</span>
-        <input
-          type="text"
-          name="email"
-          className={`w-100 custom-form-control rounded-16 p-3 mt-2 ${
-            props.inputFieldStates[props.emailField]
-          }`}
-          placeholder="johnsmith@mail.com"
-          required
-          onFocus={() => props.setEmailFieldState(1)}
-          onBlur={() => props.setEmailFieldState(0)}
-          onChange={(e) => props.setValue("email", e.target.value)}
-        ></input>
-        <ErrorMessage message={props.emailErrCode} />
-      </Col>
-    </Row>
+    <Fragment>
+      <Row>
+        <Col>
+          <span className="fw-bold">Email</span>
+          <InputField
+            name="email"
+            fieldOutlineState={props.emailField}
+            placeholder="johnsmith@mail.com"
+            setFieldState={props.setEmailFieldState}
+            setValue={props.setValue}
+            fieldName="email"
+            inputFieldState={props.inputFieldStates}
+            optionalClasses="w-100 mt-2"
+          />
+        </Col>
+      </Row>
+      <ErrorMessage message={props.emailErrCode} />
+    </Fragment>
   );
 };
 
