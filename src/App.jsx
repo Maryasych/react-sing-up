@@ -9,7 +9,7 @@ function App() {
       fluid
       className="main-bg min-vh-100 min-vw-100 d-flex align-items-center"
     >
-      <Container className="login-form col-sm-6 rounded-16 p-4">
+      <Container className="login-form col-sm-6 rounded-16">
         <AuthHeader />
         <AuthBody />
         <AuthFooter />

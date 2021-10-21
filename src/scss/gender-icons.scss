@@ -1,9 +1,10 @@
 .gender-custom-btn {
   color: $themeColor;
-  width: 12em;
-  height: 5em;
+  width: 9.7em;
+  height: 6.3em;
   font-weight: lighter;
   transition: all 0.25s;
+  box-sizing: border-box;
   svg {
     transition: fill 0.25s;
   }
@@ -38,21 +39,14 @@
 
 @media screen and (max-width: 1200px) {
   .gender-custom-btn {
-    width: 9em;
+    width: 8em;
     height: 5em;
   }
 }
 
 @media screen and (max-width: 992px) {
   .gender-custom-btn {
-    width: 6em;
-    height: 4em;
-  }
-}
-
-@media screen and (max-width: 576px) {
-  .gender-custom-btn {
-    width: 5em;
-    height: 4em;
+    width: 5.6em;
+    height: 5em;
   }
 }

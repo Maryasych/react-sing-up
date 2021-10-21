@@ -2,4 +2,12 @@
 
 .login-form {
   background-color: $white;
+  max-width: 570px;
+  padding: 35px;
+}
+
+@media screen and (max-width: 992px) {
+  .login-form {
+    padding: 16px;
+  }
 }
